@@ -1,4 +1,4 @@
-# Setup aurman
+### Setup aurman
 
 '''
 cd /tmp
@@ -7,21 +7,22 @@ cd aurman
 makepkg -si
 '''
 
-# Setup Terminal and zsh
+#### Setup Terminal and zsh
 
  1) Install zsh and antigen
-'''
+```
 aurman -S zsh antigen-git
 cp ./.zshrc ~/.zshrc
 cp ./.aliases ~/.aliases
-'''
+chsh -s /bin/zsh
+```
  
- 1) Install required fonts
-'''
+ 2) Install required fonts
+```
 aurman -S ttf-fira-code otf-fira-code
-'''
+```
 
- 1) then setup firacode as font for terminal
+ 3) then setup firacode as font for terminal
 
 
 
