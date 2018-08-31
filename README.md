@@ -13,8 +13,8 @@ makepkg -si
  1) Install zsh and antigen
 ```shell
 aurman -S zsh antigen-git
-cp ./.zshrc ~/.zshrc
-cp ./.aliases ~/.aliases
+cp ./home/.zshrc ~/.zshrc
+cp ./home/.aliases ~/.aliases
 chsh -s /bin/zsh
 ```
  
