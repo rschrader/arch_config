@@ -8,7 +8,7 @@ gpg --recv-keys 465022E743D71E39
 makepkg -si
 ```
 
-#### Setup Terminal and zsh
+### Setup Terminal and zsh
 
  1) Install zsh and antigen
 ```shell
