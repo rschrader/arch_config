@@ -26,4 +26,7 @@ aurman -S ttf-fira-code otf-fira-code
  3) then setup firacode as font for terminal
 
 
+### Enable gpu decoding in chrome
+
+
 
