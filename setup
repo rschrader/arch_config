@@ -89,9 +89,9 @@ else
 	echo -e "\nNot backing up old dotfiles."
 fi
 
-echo "source $SCRIPTPATH/dotfiles/zshrc'" >> ~/.zshrc
-echo "source '$SCRIPTPATH/dotfiles/aliases'" >> ~/.aliases
-echo "source-file '$SCRIPTPATH/dotfiles/tmux.conf'" >> ~/.tmux.conf
+echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" >> ~/.zshrc
+echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" >> ~/.aliases
+echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" >> ~/.tmux.conf
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
