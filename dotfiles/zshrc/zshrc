@@ -1,3 +1,9 @@
+if command -v tmux>/dev/null; then
+	[ -z $TMUX ] && exec tmux new-session -t 0
+else
+	echo "tmux not available!"
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -45,4 +51,5 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 # Tell antigen that you're done.
 antigen apply
 
+#use aliases
 source "${HOME}/.aliases"
