@@ -1,4 +1,2 @@
 # Set Aliases 
 
-alias ll="ls -la"
-alias l="ls -lash"
