@@ -38,6 +38,8 @@ antigen bundle command-not-found
 
 # Third Party
 antigen bundle kennethreitz/autoenv
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle chrissicool/zsh-256color
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions src

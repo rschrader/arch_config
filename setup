@@ -12,8 +12,8 @@ prompt_install() {
 		if [ -x "$(command -v apt-get)" ]; then
 			sudo apt-get install $1 -y
 
-		elif [ -x "$(command -v pacman)" ]; then
-			sudo pacman -S $1
+		elif [ -x "$(command -v aurman)" ]; then
+			sudo aurman -S $1
 
 		else
 			echo "Dunno what Packagemanager you want to use... go install $1 yourself!" 
@@ -89,9 +89,9 @@ else
 	echo -e "\nNot backing up old dotfiles."
 fi
 
-echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" >> ~/.zshrc
-echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" >> ~/.aliases
-echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" >> ~/.tmux.conf
+echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" > ~/.zshrc
+echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" > ~/.aliases
+echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" > ~/.tmux.conf
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
