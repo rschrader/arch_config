@@ -1,0 +1,51 @@
+set nocompatible
+
+syntax on                                        " syntaxhighlighting
+
+" basic settings
+set relativenumber                               " turn relative line numbers on
+set rnu
+set ruler                                        " show file stats
+set visualbell                                   " no beeping bell
+set encoding=utf-8                               " utf-8 encoding
+set mouse=a                                      " enable mouse
+
+" Indent Style
+set autoindent	                                 " Auto-indent new lines
+set expandtab	                                 " Use spaces instead of tabs
+set shiftwidth=4                                 " Number of auto-indent spaces
+set smartindent	                                 " Enable smart-indent
+set smarttab	                                 " Enable smart-tabs
+set softtabstop=4	                         " Number of spaces per Tab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" bootstrap vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
+
+" Automatically install missing plugins on startup
+if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+    autocmd VimEnter * PlugInstall | q
+    endif
+
+" Declare the list of plugins.
+" Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' } 
+
+call plug#end()
+
+
+let g:airline_powerline_fonts = 1                " use powerline fonts for pretty airline
+
+
+" Color stuff
+color dracula

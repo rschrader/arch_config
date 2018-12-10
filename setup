@@ -13,7 +13,7 @@ prompt_install() {
 			sudo apt-get install $1 -y
 
 		elif [ -x "$(command -v aurman)" ]; then
-			sudo aurman -S $1
+			aurman -S $1
 
 		else
 			echo "Dunno what Packagemanager you want to use... go install $1 yourself!" 
@@ -75,23 +75,10 @@ echo
 
 check_default_shell
 
-echo
-echo -n "Would you like to backup your current dotfiles? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	mv ~/.zshrc ~/.zshrc.old
-	mv ~/.tmux.conf ~/.tmux.conf.old
-	mv ~/.vimrc ~/.vimrc.old
-else
-	echo -e "\nNot backing up old dotfiles."
-fi
-
 echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" > ~/.zshrc
 echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" > ~/.aliases
 echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" > ~/.tmux.conf
+echo "so $SCRIPTPATH/dotfiles/vim/vimrc" > ~/.vimrc
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
