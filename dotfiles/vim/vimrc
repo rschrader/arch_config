@@ -45,7 +45,7 @@ call plug#end()
 
 
 let g:airline_powerline_fonts = 1                " use powerline fonts for pretty airline
-
+let g:airline#extensions#tabline#enabled = 1     " enable tabline
 
 " Color stuff
 color dracula
