@@ -9,6 +9,8 @@ set ruler                                        " show file stats
 set visualbell                                   " no beeping bell
 set encoding=utf-8                               " utf-8 encoding
 set mouse=a                                      " enable mouse
+set langmenu=en_US                               " US language
+let $LANG = 'en_US'
 
 " Indent Style
 set autoindent	                                 " Auto-indent new lines
@@ -40,12 +42,25 @@ if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
 " Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' } 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
-
+" vim airline
 let g:airline_powerline_fonts = 1                " use powerline fonts for pretty airline
 let g:airline#extensions#tabline#enabled = 1     " enable tabline
+
+" NerdTree
+"let NERDTreeQuitOnOpen = 1                       " close nerdtree if it is last open buffer
+let NERDTreeAutoDeleteBuffer = 1                 " delete buffer if file gets deleted
+let NERDTreeMinimalUI = 1                        " pretty nerd tree
+let NERDTreeDirArrows = 1                        " pretty nerd tree
+" close nerd tree if its the last buffer in tab
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" start nerdtree if vim is started without parameter
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Color stuff
 color dracula
