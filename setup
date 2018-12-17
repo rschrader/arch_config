@@ -47,6 +47,17 @@ check_default_shell() {
 	fi
 }
 
+check_for_zsh_antigen()
+{
+        if [ ! -f /usr/share/zsh/share/antigen.zsh ]; then
+            echo "Installing antigen for your best flavored zsh."
+            sudo mkdir -p /usr/share/zsh/share
+            sudo curl -L git.io/antigen > /usr/share/zsh/share/antigen.zsh
+        else
+            echo Antigen.zsh found... skipping...
+        fi
+}
+
 echo "We're going to do the following:"
 echo "1. Check to make sure you have zsh, vim, and tmux installed"
 echo "2. We'll help you install them if you don't"
@@ -72,6 +83,7 @@ check_for_software vim
 echo
 check_for_software tmux
 echo
+check_for_zsh_antigen
 
 check_default_shell
 
@@ -82,3 +94,5 @@ echo "so $SCRIPTPATH/dotfiles/vim/vimrc" > ~/.vimrc
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
+
+
