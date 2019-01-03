@@ -78,7 +78,10 @@ check_default_shell
 echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" > ~/.zshrc
 echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" > ~/.aliases
 echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" > ~/.tmux.conf
-echo "so $SCRIPTPATH/dotfiles/vim/vimrc" > ~/.vimrc
+
+GENERIC_VIM_RC_PATH="$HOME/.vim/rschrader_generic_vimrc"
+cp $SCRIPTPATH/dotfiles/vim/vimrc $GENERIC_VIM_RC_PATH
+echo "so $GENERIC_VIM_RC_PATH" > ~/.vimrc
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
