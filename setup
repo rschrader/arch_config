@@ -9,7 +9,10 @@ prompt_install() {
 	stty $old_stty_cfg && echo
 	if echo "$answer" | grep -iq "^y" ;then
 		# This could def use community support
-		if [ -x "$(command -v apt-get)" ]; then
+	        if [ -x "$(command -v zypper)" ]; then
+			zypper install $1
+
+	        elif [ -x "$(command -v apt-get)" ]; then
 			sudo apt-get install $1 -y
 
 		elif [ -x "$(command -v aurman)" ]; then
@@ -18,7 +21,6 @@ prompt_install() {
 			dnf install $1
 		elif [ -x "$(command -v yum)" ]; then
 			yum install $1
-
 		else
 			echo "Dunno what Packagemanager you want to use... go install $1 yourself!" 
 		fi 

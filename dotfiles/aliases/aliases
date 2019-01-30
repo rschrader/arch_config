@@ -1,2 +1,3 @@
 # Set Aliases 
+alias l="ls -lash"
 
