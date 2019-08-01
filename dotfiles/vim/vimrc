@@ -50,6 +50,8 @@ Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 call plug#end()
 
 " vim airline
