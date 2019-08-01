@@ -78,3 +78,6 @@ let g:syntastic_check_on_wq = 0
 
 " Color stuff
 color dracula
+
+" Sample command
+command SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
