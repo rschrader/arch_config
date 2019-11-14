@@ -1,32 +1,8 @@
-### Setup aurman
+### Setup vim / tmx / zsh
+ - Run setup script:
+   - On Arch:`./setup`
+   - On Fedora:`./setup_fedora`
 
-```shell
-cd /tmp
-git clone https://aur.archlinux.org/aurman.git
-cd aurman
-gpg --recv-keys 465022E743D71E39
-makepkg -si
-```
-
-### Setup Terminal and zsh
-
- 1) Install zsh and antigen
-```shell
-aurman -S zsh antigen-git
-cp ./home/.zshrc ~/.zshrc
-cp ./home/.aliases ~/.aliases
-chsh -s /bin/zsh
-```
- 
- 2) Install required fonts
-```shell
-aurman -S ttf-fira-code otf-fira-code
-```
-
- 3) then setup firacode as font for terminal
-
-
-### Enable gpu decoding in chrome
-
+ - Install Vim Plugins with `:PlugInstall`
 
 

@@ -1,0 +1,37 @@
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+#################################
+echo "INSTALL REQUIRED SOFTWARE"
+#################################
+sudo dnf install zsh vim tmux xclip 
+
+# antigen
+if [ ! -f /usr/share/zsh/share/antigen.zsh ]; then
+    echo "Installing antigen for your best flavored zsh."
+    sudo bash -c 'mkdir -p /usr/share/zsh/share'
+    sudo bash -c 'curl -L git.io/antigen > /usr/share/zsh/share/antigen.zsh'
+else
+    echo Antigen.zsh found... skipping...
+fi
+
+#################################
+echo "SETUP DEFAULT SHELL"
+#################################
+chsh -s $(which zsh)
+
+#################################
+echo "SETUP MY CONFIG"
+#################################
+echo "source '$SCRIPTPATH/dotfiles/zsh/zshrc'" > ~/.zshrc
+echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" > ~/.aliases
+echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" > ~/.tmux.conf
+
+GENERIC_VIM_RC_PATH="$HOME/.vim/rschrader_generic_vimrc"
+cp $SCRIPTPATH/dotfiles/vim/vimrc $GENERIC_VIM_RC_PATH
+echo "so $GENERIC_VIM_RC_PATH" > ~/.vimrc
+
+echo
+echo "Please log out and log back in for default shell to be initialized."
+
+
