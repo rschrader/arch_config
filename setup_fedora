@@ -1,10 +1,13 @@
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
+cd $SCRIPTPATH
+git submodule update --init
+
 #################################
 echo "INSTALL REQUIRED SOFTWARE"
 #################################
-sudo dnf install zsh vim tmux xclip 
+sudo dnf install zsh vim tmux xclip util-linux-user 
 
 # antigen
 if [ ! -f /usr/share/zsh/share/antigen.zsh ]; then
@@ -28,6 +31,7 @@ echo "source '$SCRIPTPATH/dotfiles/aliases/aliases'" > ~/.aliases
 echo "source-file '$SCRIPTPATH/dotfiles/tmux/tmux.conf'" > ~/.tmux.conf
 
 GENERIC_VIM_RC_PATH="$HOME/.vim/rschrader_generic_vimrc"
+mkdir -p $HOME/.vim
 cp $SCRIPTPATH/dotfiles/vim/vimrc $GENERIC_VIM_RC_PATH
 echo "so $GENERIC_VIM_RC_PATH" > ~/.vimrc
 
