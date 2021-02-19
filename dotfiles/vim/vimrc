@@ -12,6 +12,11 @@ set mouse=a                                      " enable mouse
 set langmenu=en_US                               " US language
 let $LANG = 'en_US'
 
+" spelling
+set spelllang=en
+set spell
+set colorcolumn=81
+
 " Indent Style
 set autoindent	                                 " Auto-indent new lines
 set expandtab	                                 " Use spaces instead of tabs
